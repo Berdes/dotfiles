@@ -35,7 +35,7 @@ main = do
         }
 
 myLayoutHook =
-  onWorkspace "1" lt $
+  onWorkspace "1" (lt ||| lfs) $
     ln ||| lfs ||| lt
   where lt = (avoidStruts . noBorders $ simpleTabbed)
         lfs = noBorders (fullscreenFull Full)
