@@ -1,0 +1,14 @@
+[user]
+    email = bernarddesmyter@gmail.com
+    name = Bernard Desmyter
+[push]
+    default = current
+[core]
+    editor = vim
+[http]
+    sslVerify = false
+[alias]
+    lo = log --pretty=format:'  %C(yellow)%cr%Creset : %C(red)%cn%Creset : %C(cyan)%h%C(green)%d%Creset%n        %s' --all --graph --decorate --color --full-history --date=relative --date-order
+    co = checkout
+    re = reset --hard
+    st = status

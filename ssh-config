@@ -1,0 +1,15 @@
+Host net7
+    User desmytb
+    HostName ssh.inpt.fr
+
+Host truite
+    User bdesmyte
+    ProxyCommand ssh -q net7 nc -q0 truite.enseeiht.fr 22
+
+Host carbone
+    User bdesmyte
+    ProxyCommand ssh -q net7 nc -q0 carbone.enseeiht.fr 22
+
+Host orphie
+    User bdesmyte
+    ProxyCommand ssh -q net7 nc -q0 orphie.enseeiht.fr 22
