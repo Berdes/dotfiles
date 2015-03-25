@@ -101,3 +101,4 @@ myManagementHooks = composeAll [
 myStartupHook :: X ()
 myStartupHook = do
     spawn "terminator -x mcabber"
+    spawn "feh --bg-scale .xmonad/arch.png"
