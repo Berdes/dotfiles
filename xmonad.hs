@@ -67,6 +67,7 @@ myTerminal = "terminator"
 myKeys :: XConfig t -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {modMask = modm}) = M.fromList $ [
         ((modm, xK_Return), spawn $ terminal conf),
+        ((modm, xK_a     ), spawn $ terminal conf),
         ((modm, xK_n     ), spawn "chromium"),
         ((modm, xK_l     ), spawn "i3lock -i ~/.xmonad/arch.png"),
         ((modm, xK_d     ), spawn "dmenu_run -b"),

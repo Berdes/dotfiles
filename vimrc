@@ -20,17 +20,6 @@ syntax on
 hi BadWhitespace guibg=red term=standout ctermbg=red
 match BadWhitespace /\s\+$\| \+\t/
 
-autocmd filetype txt set ab /\ ∧
-autocmd filetype txt set ab _in ∈
-autocmd filetype txt set ab _or ∨
-autocmd filetype txt set ab _xor ⊕
-autocmd filetype txt set ab _exists ∃
-autocmd filetype txt set ab _forall ∀
-autocmd filetype txt set ab _neq ≠
-autocmd filetype txt set ab _square □
-autocmd filetype txt set ab _losange ◊
-autocmd filetype txt set ab _not ¬
-
 " remappe W sur É :
 noremap é w
 noremap É W
@@ -56,8 +45,8 @@ noremap s k
 noremap C H
 noremap R L
 " {TS} = « joindre / aide »
-noremap T J
-noremap S K
+noremap T <C-E>
+noremap S <C-Y>
 " Corollaire : repli suivant / précédent
 noremap zs zj
 noremap zt zk
