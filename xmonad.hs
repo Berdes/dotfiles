@@ -1,20 +1,21 @@
+{-# Language OverloadedStrings #-}
 import XMonad
-import XMonad.Config.Azerty
 import System.Exit
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.Run (spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Tabbed
 import XMonad.Layout.PerWorkspace
 
+import Text.Regex.PCRE.Light
+import Data.ByteString.Internal (packChars, unpackChars)
+
 import System.IO (hPutStrLn)
 import qualified Data.Map as M
-import Control.Applicative (pure)
 import qualified Data.Monoid
 
 main :: IO ()
@@ -64,10 +65,24 @@ myWorkspacesKey = [
 myTerminal :: String
 myTerminal = "terminator"
 
+spawnLocatedTerm :: String -> X ()
+spawnLocatedTerm term = do
+  ws <- gets windowset
+  case W.stack . W.workspace $ W.current ws of
+    Just s  -> do
+      t <- runQuery title $ W.focus s
+      case match (compile "^[^ ]+  (.+)$" []) (packChars t) [] of
+        Just [_, dir] -> spawn $ term ++ " --working-dir " ++ unpackChars dir
+        Nothing ->
+          case match (compile "^[^ ]+ [^(]*\\((.+)\\) - VIM$" []) (packChars t) [] of
+          Just [_, dir] -> spawn $ term ++ " --working-dir " ++ unpackChars dir
+          Nothing -> spawn term
+    Nothing -> spawn term
+
 myKeys :: XConfig t -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {modMask = modm}) = M.fromList $ [
-        ((modm, xK_Return), spawn $ terminal conf),
-        ((modm, xK_a     ), spawn $ terminal conf),
+        ((modm, xK_Return), spawnLocatedTerm $ terminal conf),
+        ((modm, xK_a     ), spawnLocatedTerm $ terminal conf),
         ((modm, xK_n     ), spawn "chromium"),
         ((modm, xK_l     ), spawn "i3lock -i ~/.xmonad/arch.png"),
         ((modm, xK_d     ), spawn "dmenu_run -b"),
