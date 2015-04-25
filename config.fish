@@ -22,7 +22,7 @@ function parse_git_branch
 end
 
 function fish_prompt
-  if test -d .git
+  if git st >/dev/null 2>/dev/null
     printf '%s@%s %s%s%s (%s)> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (parse_git_branch)
   else
     printf '%s@%s %s%s%s> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
