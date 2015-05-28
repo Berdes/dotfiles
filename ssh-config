@@ -13,3 +13,7 @@ Host carbone
 Host orphie
     User bdesmyte
     ProxyCommand ssh -q net7 nc -q0 orphie.enseeiht.fr 22
+
+Host carpe
+    User bdesmyte
+    ProxyCommand ssh -q net7 nc -q0 carpe.enseeiht.fr 22
