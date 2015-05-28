@@ -1,6 +1,7 @@
 alias ls="ls --color"
 alias ll="ls -lh"
 alias l="ls -lAh"
+alias gg="g++ --std=c++11 -Wall -O3"
 
 alias reboot="sudo reboot"
 alias halt="sudo halt -p"
