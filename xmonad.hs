@@ -4,6 +4,7 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.SetWMName
 import XMonad.Util.Run (spawnPipe)
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Layout.NoBorders
@@ -116,5 +117,6 @@ myManagementHooks = composeAll [
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawn "terminator -x mcabber"
-    spawn "feh --bg-scale .xmonad/arch.png"
+  spawn "terminator -x mcabber"
+  spawn "feh --bg-scale .xmonad/arch.png"
+  setWMName "LG3D"
