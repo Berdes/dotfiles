@@ -11,3 +11,5 @@
     lo = log --pretty=format:'  %C(yellow)%cr%Creset : %C(red)%cn%Creset : %C(cyan)%h%C(green)%d%Creset%n        %s' --all --graph --decorate --color --full-history --date=relative --date-order
     co = checkout
     st = status
+[url "git://github.com/ghc/packages-"]
+    insteadOf = git://github.com/ghc/packages/

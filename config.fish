@@ -6,7 +6,7 @@ alias gg="g++ --std=c++11 -Wall -O3"
 alias reboot="sudo reboot"
 alias halt="sudo halt -p"
 set BROWSER chromium
-set PATH /home/berdes/.cabal/bin/ $PATH
+set PATH /home/berdes/tmp/arcanist/bin /home/berdes/.cabal/bin/ $PATH
 
 set fish_git_dirty_color red
 set fish_git_not_dirty_color green
