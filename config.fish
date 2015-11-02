@@ -1,12 +1,14 @@
 alias ls="ls --color"
 alias ll="ls -lh"
 alias l="ls -lAh"
-alias gg="g++ --std=c++11 -Wall -O3"
+alias gg="g++ --std=c++14 -Wall -Wextra -O2"
 
 alias reboot="sudo reboot"
 alias halt="sudo halt -p"
+alias new="vim (date +\"%F.txt\")"
 set BROWSER chromium
-set PATH /home/berdes/tmp/arcanist/bin /home/berdes/.cabal/bin/ $PATH
+set PATH /opt/cuda/bin/ /home/berdes/.cabal/bin/ $PATH
+set LD_LIBRARY_PATH /opt/cuda/lib64 $LD_LIBRARY_PATH
 
 set fish_git_dirty_color red
 set fish_git_not_dirty_color green

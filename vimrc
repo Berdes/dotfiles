@@ -97,6 +97,7 @@ noremap wr <C-w>l
 noremap wd <C-w>c
 noremap wo <C-w>s
 noremap wp <C-w>o
+noremap wj <C-w>r
 noremap w<SPACE> :split<CR>
 noremap w<CR> :vsplit<CR>
 
