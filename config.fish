@@ -7,8 +7,7 @@ alias reboot="sudo reboot"
 alias halt="sudo halt -p"
 alias new="vim (date +\"%F.txt\")"
 set BROWSER chromium
-set PATH /opt/cuda/bin/ /home/berdes/.cabal/bin/ $PATH
-set LD_LIBRARY_PATH /opt/cuda/lib64 $LD_LIBRARY_PATH
+set PATH /home/berdes/.cabal/bin/ $PATH
 
 set fish_git_dirty_color red
 set fish_git_not_dirty_color green

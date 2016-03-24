@@ -22,13 +22,14 @@ import qualified Data.Monoid
 main :: IO ()
 main = do
   xmproc <- spawnPipe "/home/berdes/.cabal/bin/xmobar /home/berdes/.xmobarrc"
-  xmonad $ defaultConfig {
+  xmonad $ def {
       terminal = myTerminal,
       modMask = myModKey,
       workspaces = myWorkspaces,
       keys = myKeys,
       layoutHook = myLayoutHook,
-      manageHook = manageDocks <+> myManagementHooks <+> manageHook defaultConfig,
+      manageHook = manageDocks <+> myManagementHooks <+> manageHook def,
+      handleEventHook = docksEventHook <+> handleEventHook def,
       logHook = dynamicLogWithPP xmobarPP {
           ppOutput = hPutStrLn xmproc,
           ppTitle = xmobarColor "green" "" . shorten 50
@@ -42,7 +43,6 @@ myLayoutHook =
   where lt = (avoidStruts . noBorders $ simpleTabbed)
         lfs = noBorders (fullscreenFull Full)
         ln = (avoidStruts . smartBorders $ Tall 1 (3/100) (1/2))
-
 
 myModKey :: KeyMask
 myModKey = mod4Mask

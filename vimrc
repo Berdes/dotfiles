@@ -2,6 +2,7 @@ set nocompatible
 
 " Plugin pour le filetype
 filetype plugin indent on
+au BufNewFile,BufRead *.rs set filetype=rust
 
 " Charge automatiquement les modifications externes
 set autoread
@@ -15,6 +16,7 @@ set autoindent
 set smartindent
 
 set number
+set exrc
 syntax on
 
 hi BadWhitespace guibg=red term=standout ctermbg=red

@@ -3,6 +3,10 @@ Host net7
   User desmytb
   HostName ssh.inpt.fr
 
+Host gauvain
+  User desmytb
+  ProxyCommand ssh -q net7 nc -q0 gauvain 22
+
 Host truite
   User bdesmyte
   ProxyCommand ssh -q net7 nc -q0 truite.enseeiht.fr 22
